@@ -1088,8 +1088,8 @@ func (t *ABC) getLineitem(stub shim.ChaincodeStubInterface, args []string) ([]by
 	return mapB, nil
 }
 
-//get getLineitemByKey(irrespective of organization)
-func (t *ABC) getLineitemByKey(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
+//get getLineitemsByKey(irrespective of organization)
+func (t *ABC) getLineitemsByKey(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
 
 	if len(args) != 2 {
 		return nil, errors.New("Incorrect number of arguments. Expecting 2 argument to query")
@@ -1676,7 +1676,7 @@ func (t *ABC) Query(stub shim.ChaincodeStubInterface, function string, args []st
 		return t.getLineitem(stub, args)
 	}else if function == "getLineitemByKey" { 
 		t := ABC{}
-		return t.getLineitemByKey(stub, args)
+		return t.getLineitemsByKey(stub, args)
 	}else if function == "getLineitemByStatus" { 
 		t := ABC{}
 		return t.getLineitemByStatus(stub, args)
