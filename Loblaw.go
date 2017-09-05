@@ -1150,6 +1150,7 @@ func (t *ABC) getLineitemsByKey(stub shim.ChaincodeStubInterface, args []string)
 			itemdetails.MrrRequestNumber = row.Columns[26].GetString_()
 			
 			itemArray.ItemDetail = append(itemArray.ItemDetail, itemdetails)
+			fmt.Println("Line ITEM ID : %s", itemdetails.LineItemId)
 		}
 	}
 		
@@ -1674,7 +1675,7 @@ func (t *ABC) Query(stub shim.ChaincodeStubInterface, function string, args []st
 	}else if function == "getLineitem" { 
 		t := ABC{}
 		return t.getLineitem(stub, args)
-	}else if function == "getLineitemByKey" { 
+	}else if function == "getLineitemsByKey" { 
 		t := ABC{}
 		return t.getLineitemsByKey(stub, args)
 	}else if function == "getLineitemByStatus" { 
